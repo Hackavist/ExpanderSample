@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ExpanderSample.Views.NameTagsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Name="page"
+    Title="Name Tags">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label
+                FontSize="Medium"
+                Text="Name Tages"
+                VerticalOptions="StartAndExpand" />
+            <CollectionView ItemsSource="{Binding NameTags}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            BackgroundColor="#f5f8fe"
+                            BorderColor="#7e7e7e"
+                            CornerRadius="10"
+                            HasShadow="False">
+                            <xct:Expander
+                                Margin="10,0"
+                                CollapseAnimationEasing="{x:Static Easing.CubicOut}"
+                                ExpandAnimationEasing="{x:Static Easing.CubicIn}">
+                                <xct:Expander.Header>
+                                    <StackLayout Orientation="Horizontal" Spacing="3">
+                                        <Label
+                                            FontSize="Medium"
+                                            Text="Name:"
+                                            VerticalOptions="CenterAndExpand" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Medium"
+                                            HorizontalOptions="FillAndExpand"
+                                            Text="{Binding Name}" />
+                                    </StackLayout>
+                                </xct:Expander.Header>
+                                <Frame
+                                    Padding="10"
+                                    BackgroundColor="White"
+                                    BorderColor="#7e7e7e"
+                                    HasShadow="False">
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="5">
+                                            <Label
+                                                FontSize="Medium"
+                                                Text="Age:"
+                                                VerticalOptions="CenterAndExpand" />
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="Medium"
+                                                HorizontalOptions="FillAndExpand"
+                                                Text="{Binding Age}" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="5">
+                                            <Label
+                                                FontSize="Medium"
+                                                Text="Height:"
+                                                VerticalOptions="CenterAndExpand" />
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="Medium"
+                                                HorizontalOptions="FillAndExpand"
+                                                Text="{Binding Height}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </xct:Expander>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
